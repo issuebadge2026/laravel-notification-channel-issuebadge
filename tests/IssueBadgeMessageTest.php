@@ -17,7 +17,6 @@ class IssueBadgeMessageTest extends TestCase
             ->email('ada@example.com')
             ->issueDate('2026-10-09')
             ->expireDate(new DateTimeImmutable('2027-10-09 15:00:00'))
-            ->memo('Completed the course')
             ->idempotencyKey('course-42-user-7')
             ->metadata(['score' => 95])
             ->meta('course', 'CS101');
@@ -29,7 +28,6 @@ class IssueBadgeMessageTest extends TestCase
             'idempotency_key' => 'course-42-user-7',
             'issue_date' => '2026-10-09',
             'expire_date' => '2027-10-09',
-            'memo' => 'Completed the course',
             'metadata' => ['score' => 95, 'course' => 'CS101'],
         ], $message->toArray());
     }

@@ -85,7 +85,6 @@ class CourseCompleted extends Notification
         return IssueBadgeMessage::create($this->course->issuebadge_badge_id)
             ->issueDate(now())
             ->expireDate(now()->addYears(2))
-            ->memo("Completed {$this->course->title}")
             ->idempotencyKey("course-{$this->course->id}-user-{$notifiable->id}")
             ->metadata(['score' => $this->score, 'course' => $this->course->title]);
     }
@@ -132,7 +131,6 @@ Notification::route('issuebadge', ['name' => 'Grace Hopper', 'email' => 'grace@e
 - `email(?string $email)`: recipient email; IssueBadge emails the certificate when set
 - `issueDate(DateTimeInterface|string $date)`: `Y-m-d`, defaults to today
 - `expireDate(DateTimeInterface|string $date)`: `Y-m-d`
-- `memo(string $memo)`: internal note stored with the issued badge
 - `idempotencyKey(string $key)`: re-sending the same key returns the existing issue instead of a duplicate
 - `metadata(array $values)` / `meta(string $key, mixed $value)`: custom field values defined on the badge template
 - `toArray()`: the request body sent to `POST /api/v1/issue/create`

@@ -16,7 +16,6 @@ class IssueBadgeMessage
 
     protected ?string $expireDate = null;
 
-    protected ?string $memo = null;
 
     protected ?string $idempotencyKey = null;
 
@@ -72,14 +71,6 @@ class IssueBadgeMessage
         return $this;
     }
 
-    /** Internal memo stored with the issued badge. */
-    public function memo(string $memo): self
-    {
-        $this->memo = $memo;
-
-        return $this;
-    }
-
     /** Unique key: sending the same key twice returns the existing issue instead of a duplicate. */
     public function idempotencyKey(string $key): self
     {
@@ -129,7 +120,6 @@ class IssueBadgeMessage
             'idempotency_key' => $this->idempotencyKey,
             'issue_date' => $this->issueDate,
             'expire_date' => $this->expireDate,
-            'memo' => $this->memo,
             'metadata' => $this->metadata ?: null,
         ], fn ($value) => $value !== null);
     }
