@@ -19,7 +19,7 @@ class IssueBadgeChannel
      * ['name' => ..., 'email' => ...]), then the notifiable's name/email attributes.
      *
      * @param  mixed  $notifiable
-     * @return array  The IssueBadge API response (IssueId, publicUrl, ...)
+     * @return array The IssueBadge API response (IssueId, publicUrl, ...)
      *
      * @throws CouldNotSendNotification
      */
