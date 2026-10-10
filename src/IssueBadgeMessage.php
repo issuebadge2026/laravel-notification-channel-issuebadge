@@ -16,7 +16,6 @@ class IssueBadgeMessage
 
     protected ?string $expireDate = null;
 
-
     protected ?string $idempotencyKey = null;
 
     protected array $metadata = [];
